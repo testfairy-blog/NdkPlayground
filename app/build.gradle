@@ -40,4 +40,25 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'testfairy:testfairy-android-sdk:1.+@aar'
+}
+
+apply plugin: 'testfairy'
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+        maven { url 'https://www.testfairy.com/maven' }
+    }
+
+    dependencies {
+        classpath 'com.testfairy.plugins.gradle:testfairy:3.+'
+    }
+}
+
+testfairyConfig {
+    apiKey "" // TODO : set this before running the app
+    uploadProguardMapping true
 }
